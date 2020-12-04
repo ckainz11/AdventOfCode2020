@@ -4,7 +4,8 @@ import utils.getResourceAsLines
 import java.awt.font.NumericShaper
 
 fun main() {
-    println(multiply(solve2(1, 1), solve2(3 ,1), solve2(5, 1), solve2(7, 1), solve2(1,  2)))
+   val res = solve2(1, 1) * solve2(3 ,1)  * solve2(5, 1) *  solve2(7, 1) * solve2(1,  2)
+    println(res)
 }
 
 fun solve1(): Int {
@@ -39,10 +40,4 @@ fun solve2(xIncrement: Int, yIncrement: Int): Int {
     return treeCount
 }
 
-private fun multiply(vararg nums: Int): Int{
-    var sum = 1
-    for (num in nums)
-        sum *= num
-    return sum
-}
 
