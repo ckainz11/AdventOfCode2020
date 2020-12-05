@@ -31,7 +31,6 @@ fun solve2(): Int {
 
 
 
-
     var previous = 0
 
     for(seat in allSeats) {
@@ -43,45 +42,6 @@ fun solve2(): Int {
     return 0
 
 }
-fun getSeatID(line: String): Int{
-    val rowID = line.substring(0..6)
-    val columnID = line.substring(7..9)
-    return getRow(rowID) * 8 + getColumn(columnID)
-}
+fun getSeatID(line: String): Int = line.replace('F', '0').replace('B', '1').replace('L', '0').replace('R', '1').toInt(2)
 
-fun getRow(rowID: String): Int{
 
-    var lower = 0
-    var upper = 127
-
-    for(c in rowID){
-        val range = (upper - lower + 1) / 2
-        if(c == 'B'){
-            val newLower = range + lower
-            lower = newLower
-        }
-        else {
-            val newUpper = upper - range
-            upper = newUpper
-        }
-    }
-    return if (rowID.last() == 'F') lower else upper
-}
-fun getColumn(columnID: String): Int{
-
-    var lower = 0
-    var upper = 7
-
-    for(c in columnID){
-        val range = (upper - lower + 1) / 2
-        if(c == 'R'){
-            val newLower = range + lower
-            lower = newLower
-        }
-        else {
-            val newUpper = upper - range
-            upper = newUpper
-        }
-    }
-    return if (columnID.last() == 'L') lower else upper
-}
