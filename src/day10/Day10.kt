@@ -62,7 +62,7 @@ fun solve2(): Long {
 
 
 //fun explore(currentIndex: Int) {
-//    if (input[currentIndex] == goal) {
+//    if (input.txt[currentIndex] == goal) {
 //        allSolutions++
 //        return
 //    }
