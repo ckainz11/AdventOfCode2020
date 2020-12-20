@@ -112,7 +112,7 @@ fun createRegex(ruleIndex: Int, rule: String, aIndex: Int, bIndex: Int, part2: B
     }
     regexString += ")"
     if (part2 && ruleIndex == 8)
-        regexString += "*"
+        regexString += "+"
     return regexString
 }
 
