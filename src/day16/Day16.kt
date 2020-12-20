@@ -122,7 +122,6 @@ fun solve2(): Long {
                     entry.value.remove(rule)
                 }
             }
-
         }
     }
     var sum = 1L
