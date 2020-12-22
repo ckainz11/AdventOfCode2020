@@ -25,7 +25,6 @@ val input2 = getResourceAsLines("/day19/input.txt")
 val maxlength = input2.indexOf(input2.maxBy { it.length })
 var rules2 = mutableMapOf<Int, String>()
 
-
 fun solve(aIndex: Int, bIndex: Int, part2: Boolean): Int {
     rules2 = mutableMapOf<Int, String>()
     var startIndex = 0
