@@ -2,7 +2,6 @@ package day21
 
 
 import utils.getResourceAsLines
-import javax.print.DocFlavor
 import kotlin.system.measureTimeMillis
 
 fun main() {
@@ -27,7 +26,7 @@ val allIngredients = mutableListOf<String>()
 val possibleAllergens = mutableMapOf<String, MutableList<String>>()     //ingredient, possible Allergens
 fun part1(): Int {
 
-
+    //Parsing the input: Creating Ingredients, mapping allergens to amount of occurences and storing all ingredients
     for (line in input) {
         val r = Regex("\\((.*?)\\)")
         val allergens = r.find(line)!!.value.trim('(').trim(')').split(", ")
@@ -49,7 +48,7 @@ fun part1(): Int {
                 allAllergens[a] = allergen + 1
         }
     }
-
+    //mapping every ingredient to possible allergens
     for (i in ingredients) {
         val ing = i.value
         for (a in allAllergens) {
@@ -64,15 +63,22 @@ fun part1(): Int {
 
         }
     }
+    //finding out which ingredients dont contain allergens
     val noAllergen = mutableSetOf<String>()
     for (i in ingredients) {
         if (!possibleAllergens.containsKey(i.key))
             noAllergen.add(i.key)
     }
+    //counting occurences of ingredients
     return allIngredients.count { noAllergen.contains(it) }
 }
 
 fun part2(): String {
+    //find out which ingredients only have one possible allergen
+    //remove that allergen from the possible allergen list of the other ingredients
+    //continue until every ingredient has one allergen matched to it
+
+
     val map = mutableMapOf<String, String>()
     while (map.size != possibleAllergens.size) {
         for (p in possibleAllergens) {
